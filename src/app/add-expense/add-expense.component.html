@@ -1,0 +1,64 @@
+<form (ngSubmit)="onSubmit()" class="space-y-4 p-4 bg-gray-800 text-white rounded-md shadow-md">
+
+  <div>
+    <label for="date" class="block text-sm font-medium">Date</label>
+    <input
+      id="date"
+      type="date"
+      [(ngModel)]="enteredDate"
+      name="date"
+      class="w-full p-2 mt-2 bg-gray-700 text-white rounded-md"
+      placeholder="Enter date"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="amount" class="block text-sm font-medium">Amount</label>
+    <input
+      id="amount"
+      type="number"
+      [(ngModel)]="enteredAmount"
+      name="amount"
+      class="w-full p-2 mt-2 bg-gray-700 text-white rounded-md"
+      placeholder="Enter amount"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="category" class="block text-sm font-medium">Category</label>
+    <input
+      id="category"
+      type="text"
+      [(ngModel)]="enteredCategory"
+      name="category"
+      class="w-full p-2 mt-2 bg-gray-700 text-white rounded-md"
+      placeholder="Enter category"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="description" class="block text-sm font-medium">Description</label>
+    <textarea
+      id="description"
+      [(ngModel)]="enteredDescription"
+      name="description"
+      class="w-full p-2 mt-2 bg-gray-700 text-white rounded-md"
+      placeholder="Enter description"
+      rows="4"
+      required
+    ></textarea>
+  </div>
+
+  <div>
+    <button
+      type="submit"
+      class="w-full p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md mt-4 transition"
+    >
+      Add Expense
+    </button>
+  </div>
+
+</form>

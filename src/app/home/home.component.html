@@ -1,0 +1,37 @@
+<section class="p-4">
+  <h1 class="text-2xl font-semibold text-gray-200 mb-4">Expenses</h1>
+  @if (expenses().length !== 0) {
+    <div class="bg-gray-800 text-gray-200 rounded-lg p-4 shadow-md">
+      <table class="w-full table-auto text-left">
+        <thead>
+        <tr>
+          <th class="px-4 py-2">Date</th>
+          <th class="px-4 py-2">Category</th>
+          <th class="px-4 py-2">Amount</th>
+          <th class="px-4 py-2">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (expense of expenses(); track expense.date + Math.random()) {
+            <tr class="hover:bg-gray-900">
+              <td class="px-4 py-2">{{ expense.date | date: 'dd/MM/yyyy' }}</td>
+              <td class="px-4 py-2 capitalize">{{ expense.category }}</td>
+              <td class="px-4 py-2">{{ expense.amount | currency }}</td>
+              <td class="px-4 py-2">{{ expense.description }}</td>
+              <button
+                (click)="onClick(expense.id!)"
+                class="bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800 transition">
+                Remove expense
+              </button>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else {
+    <div class="mt-4 text-gray-400">
+      <p>No expenses found. Add some expenses to see them here.</p>
+    </div>
+  }
+
+</section>
